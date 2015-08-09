@@ -33,11 +33,13 @@ body{
 }
 
 .msg_box{
-    position:fixed;
-    bottom:-5px;
-    width:250px;
-    background:white;
-    border-radius:5px 5px 0px 0px;
+
+    background: white none repeat scroll 0 0;
+    border-radius: 5px 5px 0 0;
+    bottom: -5px;
+    float: right;
+    margin-right: 10px;
+    width: 250px;
 }
 
 .msg_head{
@@ -99,7 +101,7 @@ body{
     min-height:10px;
     margin-bottom:5px;
     margin-right:10px;
-    border-radius:5px;
+    margin-left: 25px;
 }
 .msg_a:before{
     content:"";
@@ -119,8 +121,7 @@ body{
     min-height:15px;
     margin-bottom:5px;
     position:relative;
-    margin-left:10px;
-    border-radius:5px;
+    width: 171px;
 }
 .msg_b:after{
     content:"";
@@ -131,4 +132,29 @@ body{
     border-color: transparent transparent transparent #EEF2E7;
     right:-20px;
     top:7px;
+}
+#msgs{
+    /*float: right;*/
+    width: 830px;
+    bottom: 0;
+    position: fixed;
+    right: 282px;
+}
+.profil_photo{
+    float: left;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: -37px;
+    top: 0;
+    border-radius: 3px;
+}
+.profil_photo_b{
+    float: left;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: -8px;
+    top: 0;
+    border-radius: 3px;
 }
