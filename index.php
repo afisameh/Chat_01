@@ -1,40 +1,68 @@
+<?php
+require_once 'dbconfig.php';
+
+if($user->is_loggedin()!="")
+{
+	$user->redirect('main.php');
+}
+
+if(isset($_POST['btn-login']))
+{
+	$uname = $_POST['txt_uname_email'];
+	$umail = $_POST['txt_uname_email'];
+	$upass = $_POST['txt_password'];
+		
+	if($user->login($uname,$umail,$upass))
+	{
+		$user->redirect('main.php');
+	}
+	else
+	{
+		$error = "Wrong Details !";
+	}	
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="facivon.ico">
-
-    <title>Facebook like chat</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="script.js"></script>
-  </head>
-  <body>
-  
-  <div class="chat_box">
-	<div class="chat_head"> Chat Box</div>
-	<div class="chat_body"> 
-	<div class="user"> Krishna Teja</div>
-	</div>
-  </div>
-
-<div class="msg_box" style="right:290px">
-	<div class="msg_head">Krishna Teja
-	<div class="close">x</div>
-	</div>
-	<div class="msg_wrap">
-		<div class="msg_body">
-			<div class="msg_a">This is from A	</div>
-			<div class="msg_b">This is from B, and its amazingly kool nah... i know it even i liked it :)</div>
-			<div class="msg_a">Wow, Thats great to hear from you man </div>	
-			<div class="msg_push"></div>
-		</div>
-	<div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login : cleartuts</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
+<link rel="stylesheet" href="sign_style.css" type="text/css"  />
+<link rel="stylesheet" href="style.css" type="text/css"  />
+</head>
+<body>
+<div class="container">
+    	<div class="form-container">
+        <form method="post">
+            <h2>Sign in.</h2><hr />
+            <?php
+			if(isset($error))
+			{
+					 ?>
+                     <div class="alert alert-danger">
+                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                     </div>
+                     <?php
+			}
+			?>
+            <div class="form-group">
+            	<input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
+            </div>
+            <div class="form-group">
+            	<input type="password" class="form-control" name="txt_password" placeholder="Your Password" required />
+            </div>
+            <div class="clearfix"></div><hr />
+            <div class="form-group">
+            	<button type="submit" name="btn-login" class="btn btn-block btn-primary">
+                	<i class="glyphicon glyphicon-log-in"></i>&nbsp;SIGN IN
+                </button>
+            </div>
+            <br />
+            <label>Don't have account yet ! <a href="sign-up.php">Sign Up</a></label>
+        </form>
+       </div>
 </div>
-</div>
+
 </body>
 </html>
