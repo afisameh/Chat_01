@@ -26,7 +26,7 @@ body{
 .chat_head,.msg_head{
     background:#f39c12;
     color:white;
-    padding:15px;
+    padding:8px;
     font-weight:bold;
     cursor:pointer;
     border-radius:5px 5px 0px 0px;
@@ -122,6 +122,7 @@ body{
     margin-bottom:5px;
     position:relative;
     width: 171px;
+    text-align: right;
 }
 .msg_b:after{
     content:"";
@@ -154,7 +155,7 @@ body{
     width: 32px;
     height: 32px;
     position: absolute;
-    right: -8px;
+    right: -42px;
     top: 0;
     border-radius: 3px;
 }

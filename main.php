@@ -20,15 +20,47 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <title>Facebook like chat</title>
         <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="menu.css" type="text/css" media="screen" />
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="script.js"></script>
+        <script type="text/javascript" src="script.js"></script>
         <title>welcome - <?php print($userRow['user_email']); ?></title>
     </head>
     <body>
+
+        <ul id="menu">
+            <li><a href="#" class="drop" title="Profil">
+                    <img src="img/ligne.png"/>
+                    <h2><?php print($userRow['user_name']); ?></h2>
+                </a>
+            </li><!-- End Home Item -->
+            <li class="menu_right"><a href="#" class="drop"> 
+                    <a href="logout.php?logout=true"><h2> logout </h2></a>
+                </a>
+            </li>
+
+            <li class="menu_right"><a href="#" class="drop">
+                    <img src="img/notification.png" style="width: 32px; height: 32px"/>
+                </a><!-- Begin 3 columns Item -->
+
+                <div class="dropdown_3columns align_right"><!-- Begin 3 columns container -->
+                    <h2>salem</h2>
+                </div><!-- End 3 columns container -->
+
+            </li><!-- End 3 columns Item -->
+
+            <li class="menu_right"><a href="#" class="drop">
+                    <img src="img/msg.png" style="width: 38px; height: 45px; margin:-10px 0px 0px 5px;"/>
+                </a><!-- Begin 3 columns Item -->
+
+                <div class="dropdown_3columns align_right"><!-- Begin 3 columns container -->
+                    <h2>salem</h2>
+                </div><!-- End 3 columns container -->
+
+            </li><!-- End 3 columns Item -->
+        </ul>
+
         <div class="right">
-            <label><a href="logout.php?logout=true"><i class="glyphicon glyphicon-log-out"></i> logout</a></label>
         </div>
-        welcome : <?php print($userRow['user_name']); ?>
         <div class="chat_box">
             <div class="chat_head"> Chat Box</div>
             <div class="chat_body"> 
@@ -73,6 +105,11 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                     var chaine2 = $(this).attr("alt");
                     var chaine3 = "<div class='close'>x</div></div><div class='msg_wrap'><div class='msg_body'><div class='msg_a'><img class='profil_photo' src='images/souhail.jpg' alt='Smiley face'>This is from A</div><div class='msg_b'><img class='profil_photo_b' src='images/images.jpg' alt='Smiley face'>know it even i liked it :)</div><div class='msg_a'><img class='profil_photo' src='images/souhail.jpg' alt='Smiley face'>Wow, Thats great to hear from you man </div><div class='msg_push'></div></div><div class='msg_footer'><textarea class='msg_input' rows='4'></textarea></div></div></div>";
                     $("#msgs").append(chaine1 + chaine2 + chaine3);
+                });
+
+                $('.close_test').click(function () {
+//        $(this).parent().remove();
+                    alert("chat");
                 });
             });
         </script>
